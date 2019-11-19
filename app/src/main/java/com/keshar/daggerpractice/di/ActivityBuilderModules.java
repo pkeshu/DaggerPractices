@@ -1,6 +1,7 @@
 package com.keshar.daggerpractice.di;
 
 
+import com.keshar.daggerpractice.di.auth.AuthModule;
 import com.keshar.daggerpractice.di.auth.AuthViewModelsModule;
 import com.keshar.daggerpractice.ui.auth.AuthActivity;
 
@@ -13,6 +14,7 @@ public abstract class ActivityBuilderModules {
     @ContributesAndroidInjector(
             modules = {
                     AuthViewModelsModule.class,
+                    AuthModule.class,
             }
     )
     abstract AuthActivity contributeAuthActivity();
