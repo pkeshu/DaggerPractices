@@ -1,6 +1,8 @@
-package com.keshar.daggerpractice;
+package com.keshar.daggerpractice.ui.auth;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -8,6 +10,8 @@ import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.RequestManager;
+import com.keshar.daggerpractice.R;
+import com.keshar.daggerpractice.view_modules.ViewModelProviderFactory;
 
 import javax.inject.Inject;
 
@@ -23,6 +27,11 @@ public class AuthActivity extends DaggerAppCompatActivity {
 //    @Inject
 //    boolean isApplicationNull;
 
+    private AuthViewModel viewModel;
+
+    @Inject
+    ViewModelProviderFactory providerFactory;
+
     @Inject
     Drawable logo;
 
@@ -33,6 +42,7 @@ public class AuthActivity extends DaggerAppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_auth);
+        viewModel = ViewModelProviders.of(this, providerFactory).get(AuthViewModel.class);
 //        Log.d(TAG, "onCreate: " + testString);
 //        Log.d(TAG, "onCreate: Is Application is null?" + isApplicationNull);
         setLogo();
