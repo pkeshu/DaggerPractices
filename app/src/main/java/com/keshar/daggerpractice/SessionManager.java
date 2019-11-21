@@ -40,6 +40,7 @@ public class SessionManager {
 
     public void logout() {
         Log.d(TAG, "logout: Logging out..");
+        cachedUser.setValue(AuthResource.<User>logout());
     }
 
     public LiveData<AuthResource<User>> getAuthUser() {

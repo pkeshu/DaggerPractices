@@ -3,6 +3,9 @@ package com.keshar.daggerpractice.di;
 
 import com.keshar.daggerpractice.di.auth.AuthModule;
 import com.keshar.daggerpractice.di.auth.AuthViewModelsModule;
+import com.keshar.daggerpractice.di.main.MainFragmentsBuilderModule;
+import com.keshar.daggerpractice.di.main.MainModule;
+import com.keshar.daggerpractice.di.main.MainViewModelsModule;
 import com.keshar.daggerpractice.ui.auth.AuthActivity;
 import com.keshar.daggerpractice.ui.main.MainActivity;
 
@@ -20,7 +23,9 @@ public abstract class ActivityBuilderModules {
     )
     abstract AuthActivity contributeAuthActivity();
 
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(
+            modules = {MainFragmentsBuilderModule.class, MainViewModelsModule.class, MainModule.class}
+    )
     abstract MainActivity contributeMainActivity();
 
 }
