@@ -10,11 +10,13 @@ import retrofit2.Retrofit;
 @Module
 public class MainModule {
 
+    @MainScope
     @Provides
     static PostsRecyclerAdapter provideRecyclerAdapter() {
         return new PostsRecyclerAdapter();
     }
 
+    @MainScope
     @Provides
     static MainApi providerMainApi(Retrofit retrofit) {
         return retrofit.create(MainApi.class);
