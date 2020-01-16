@@ -101,7 +101,8 @@ public class AuthActivity extends DaggerAppCompatActivity implements View.OnClic
                             break;
                         }
                     }
-                }
+                }else
+                    Log.d(TAG, "onChanged: userAuth is null");
             }
         });
     }
